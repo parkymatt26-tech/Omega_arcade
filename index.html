@@ -9,9 +9,9 @@
 <meta property="og:description" content="Survive. Ascend. Build. Three original games plus one externally hosted game.">
 <title>OMEGA ARCADE — Your Games, One Universe</title>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="stylesheet" href="styles.css">
-<script src="custom-games.js" defer></script>
-<script src="app.js" defer></script>
+<link rel="stylesheet" href="styles.css?v=fix2">
+<script src="custom-games.js?v=fix2" defer></script>
+<script src="app.js?v=fix2" defer></script>
 </head>
 <body>
 <a class="skip" href="#library">Skip to game library</a>
@@ -34,7 +34,7 @@
 </aside>
 <div class="mobile-sidebar-shade" id="sidebarShade" hidden></div>
 <div class="site-main">
-  <header class="topbar"><button id="menuBtn" class="icon-btn mobile-menu" title="Open menu" aria-label="Open menu">☰</button><span class="topbar-eyebrow">YOUR PERSONAL ARCADE <span class="sep">/</span> HOME</span><div class="topbar-actions"><span class="topbar-status"><span class="status-dot"></span> ALL GAMES ONLINE</span><button type="button" class="btn btn-primary add-top" id="addGameBtn">＋ ADD GAME</button><button type="button" class="icon-btn" id="themeBtn" aria-label="Switch color theme" title="Switch color theme">◐</button></div></header>
+  <header class="topbar"><button id="menuBtn" class="icon-btn mobile-menu" title="Open menu" aria-label="Open menu">☰</button><span class="topbar-eyebrow">YOUR PERSONAL ARCADE <span class="sep">/</span> HOME</span><div class="topbar-actions"><span class="topbar-status"><span class="status-dot"></span> ALL GAMES ONLINE</span><button type="button" class="btn btn-primary add-top" id="addGameBtn" onclick="omegaOpenAddGame()">＋ ADD GAME</button><button type="button" class="icon-btn" id="themeBtn" aria-label="Switch color theme" title="Switch color theme">◐</button></div></header>
   <main class="content">
     <section class="intro" aria-labelledby="introTitle"><div class="eyebrow"><span class="line"></span> WELCOME TO YOUR ARCADE <span class="eyebrow-cross">✳</span></div><div class="title-row"><div><h1 id="introTitle">LEVEL UP YOUR <em>FREE TIME.</em></h1><p>Original games and an online guest game. Big adventures. No downloads required.</p></div><div class="side-count"><span>YOUR COLLECTION</span><strong><span id="headlineGameCount">04</span><span>/∞</span></strong></div></div></section>
     <section class="hero" aria-label="Featured game"><div class="hero-image" aria-hidden="true"></div><div class="hero-gloss" aria-hidden="true"></div><div class="hero-content"><div class="hero-pills"><span class="pill pill--live"><span class="status-dot"></span> FEATURED GAME</span><span class="pill">SURVIVAL / ROGUELITE</span></div><div class="hero-copy"><span class="hero-mini">GAME_001 <span class="sep">/</span> ENTER THE WASTELAND</span><h2>ASHFALL<br><span>LAST LIGHT</span></h2><p>One survivor. Endless enemies. Build impossible combinations, unleash powerful abilities, and survive the next wave.</p><div class="hero-buttons"><a class="btn btn-primary" href="play.html?game=ashfall"><span>▶</span> PLAY NOW <span class="btn-arrow">↗</span></a><button class="btn btn-ghost" type="button" data-details="ashfall">ABOUT GAME <span>↗</span></button></div></div><div class="hero-bottom"><span>✦ ORIGINAL GAME</span><span>⌑ BROWSER-READY</span><span>∞ REPLAYABLE</span></div></div><div class="hero-index">01 <span>/ 04</span></div></section>
@@ -71,5 +71,21 @@
 </dialog>
 <dialog id="detailsDialog" class="details-dialog" aria-labelledby="detailsTitle"><div class="details-dialog-body"><button id="closeDetails" class="dialog-close" aria-label="Close game details">×</button><img id="detailsImage" src="assets/ashfall.webp" alt="Game screenshot"><div class="details-content"><span id="detailsCategory" class="eyebrow small">GAME DETAIL</span><h2 id="detailsTitle">ASHFALL</h2><p id="detailsDescription"></p><div id="detailsTags" class="detail-tags"></div><h3>HOW TO PLAY</h3><p id="detailsControls"></p><div class="details-actions"><a id="detailsPlay" class="btn btn-primary" href="play.html?game=ashfall">▶ PLAY GAME</a><button type="button" id="detailsFavorite" class="btn btn-ghost">☆ SAVE TO FAVORITES</button></div></div></div></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* Fail-safe launcher: popup works even if library scripts are outdated or fail to load. */
+function omegaOpenAddGame(){
+  const dialog=document.getElementById('addGameDialog');
+  if(!dialog)return;
+  if(!dialog.open){
+    try{dialog.showModal()}catch(error){dialog.setAttribute('open','');dialog.style.display='block'}
+  }
+  const error=document.getElementById('addGameError');
+  if(error)error.hidden=true;
+  if(typeof OMEGA_CUSTOM==='undefined'){
+    if(error){error.textContent='The game manager did not load. Please refresh this page (Ctrl + Shift + R), then try again.';error.hidden=false}
+  }
+}
+</script>
 </body>
 </html>
