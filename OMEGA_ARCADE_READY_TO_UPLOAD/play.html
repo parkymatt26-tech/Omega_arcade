@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#070b16">
+<title>PLAY | OMEGA ARCADE</title><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="player.css"><script src="player.js" defer></script>
+</head>
+<body class="player-body">
+<header class="player-bar"><a class="player-logo" href="index.html" aria-label="Back to Omega Arcade">Ω <span>OMEGA <b>ARCADE</b></span></a><div class="player-top-right"><a class="player-back" href="index.html">← BACK TO LIBRARY</a><span class="status-dot"></span><span class="player-live">ARCADE ONLINE</span></div></header>
+<main class="player-main">
+<div class="player-heading"><div><p class="player-overline">OMEGA / NOW PLAYING</p><h1 id="gameTitle">ASHFALL: LAST LIGHT</h1><p id="gameSubtitle">Survive, upgrade and play.</p></div><div class="player-switch"><label for="gameSelect">CHOOSE GAME</label><select id="gameSelect" aria-label="Select a game"><option value="ashfall">ASHFALL: LAST LIGHT</option><option value="floor99">FLOOR 99</option><option value="neon-foundry">NEON FOUNDRY</option><option value="yandex-385957">THEY ARE COMING</option></select></div></div>
+<section class="game-stage" aria-label="Embedded game player">
+  <div class="game-stage-top"><span><span class="status-dot"></span> LIVE GAME SESSION</span><span>16:9 GAME PLAYER</span></div>
+  <div class="game-viewport">
+  <iframe id="game" title="Game player" class="gameClass" style="aspect-ratio:16/9" src="games/ashfall/index.html" scrolling="no" frameborder="0" allow="fullscreen; gamepad; autoplay" allowfullscreen></iframe>
+  </div>
+  <div id="hostNotice" class="host-notice" hidden>This game is hosted by Yandex and needs an internet connection. If the player stays blank or shows an error, use <strong>OPEN ON YANDEX</strong> below. Third-party hosting and embedding restrictions are outside OMEGA ARCADE’s control.</div>
+  <div class="game-toolbar"><div class="game-toolbar-left"><button id="reloadGame" type="button">↻ RESTART GAME</button><button id="fullscreenGame" type="button">⛶ FULLSCREEN</button><a id="openGame" href="games/ashfall/index.html" target="_blank" rel="noopener">↗ OPEN IN NEW TAB</a></div><span class="game-tooltip">CLICK THE GAME TO CONTROL IT</span></div>
+</section>
+<div class="player-bottom"><div><h2>HOW TO PLAY</h2><p id="controls">WASD to move, mouse to aim and shoot.</p></div><div><h2>ABOUT THE GAME</h2><p id="aboutGame">Play this original browser game on OMEGA ARCADE.</p></div></div>
+<div class="player-callout"><span>GOT A GAME TO ADD?</span> Put any standalone HTML game in its own folder and update the game list. <code>drift-boss-v3/index.html</code> works here once that folder is uploaded.</div>
+</main><footer class="player-footer"><span>OMEGA ARCADE / GAME COLLECTION</span><a href="index.html">EXPLORE MORE GAMES ↗</a></footer>
+</body>
+</html>
