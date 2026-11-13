@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070b16"><title>Add Game | OMEGA ARCADE</title>
+<style>
+:root{color-scheme:dark;--bg:#080d19;--panel:#121c2d;--line:#314259;--mint:#5ef3cb;--text:#edf9ff;--muted:#9aaec8}*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 60% -10%,#1e5160a0,transparent 55%),radial-gradient(ellipse at 0 90%,#251c47,transparent 55%),var(--bg);font:15px/1.55 Inter,'Segoe UI',system-ui,sans-serif;color:var(--text)}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+header{display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid #30435a;padding:18px clamp(16px,4vw,60px);background:#0a1220d9}
+.logo{font-weight:900;letter-spacing:.08em}.logo b{color:var(--mint)}.back{background:#18283a;border:1px solid #3a5d67;border-radius:9px;padding:9px 14px;font-size:12px;font-weight:800}
+main{max-width:1190px;margin:0 auto;padding:36px 20px 70px}.eyebrow{font-weight:900;letter-spacing:.24em;color:var(--mint);font-size:11px}h1{font-size:clamp(34px,5vw,65px);line-height:1.03;letter-spacing:-.065em;margin:10px 0 12px}h1 span{color:var(--mint)}.intro{color:var(--muted);max-width:700px;margin:0 0 30px}
+.columns{display:grid;grid-template-columns:minmax(0,1.42fr) minmax(280px,.85fr);gap:22px;align-items:start}.panel{border:1px solid #364d62;border-radius:16px;background:linear-gradient(150deg,#172439,#10192a);box-shadow:0 18px 75px #0004;padding:clamp(18px,3vw,30px)}h2{font-size:19px;letter-spacing:-.02em;margin:0 0 18px}.field{display:block;margin:0 0 18px}.field span{display:block;font-weight:800;letter-spacing:.08em;font-size:11px;color:#b8cddd;margin-bottom:7px}.field input,.field select,.field textarea{display:block;width:100%;padding:13px 14px;border:1px solid #3b5971;border-radius:9px;background:#081423;color:#f5faff;font-size:14px;resize:vertical}.field input::placeholder,.field textarea::placeholder{color:#71889f}.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}.required{color:#f7c27b}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:9px;min-height:43px;padding:11px 16px;border-radius:9px;border:1px solid #426175;background:#1d3242;color:#ecf6fb;font-size:13px;font-weight:900;letter-spacing:.035em}.primary{background:var(--mint);color:#092329;border-color:var(--mint)}.primary:hover{background:#a1ffeb}.btn:hover{filter:brightness(1.1)}.buttons{display:flex;gap:10px;flex-wrap:wrap}.status{border:1px solid #399c76;background:#123c35;padding:13px 16px;border-radius:9px;color:#c4ffee;margin-top:18px}.status.error{border-color:#b85c66;background:#4e1e31;color:#ffced4}.status[hidden]{display:none}
+.note{color:#9eb5c8;font-size:12px;margin:8px 0}.small{font-size:12px;color:var(--muted)}.tip{border:1px solid #285e56;border-radius:10px;background:#102d32;padding:14px;margin-top:14px;color:#bde9e2;font-size:13px}.tip code{background:#08262e;padding:2px 4px;border-radius:3px;color:#e7ffff}.saved-list{padding:0;margin:12px 0;list-style:none;display:grid;gap:8px}.saved-list li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:#0b1727;border:1px solid #2d455a;border-radius:8px}.saved-list a{color:var(--mint);font-weight:750;overflow-wrap:anywhere}.remove{border:1px solid #744251;background:#381e2c;padding:5px 9px;border-radius:6px;color:#ffd5d5}.tools{display:flex;flex-wrap:wrap;gap:8px}#file{max-width:100%;display:none}.badge{display:inline-flex;background:#173b37;border:1px solid #338678;border-radius:100px;color:var(--mint);font-size:11px;padding:4px 9px;font-weight:800}
+footer{padding:26px;text-align:center;color:#7e97ac;font-size:11px}.attribution{margin-top:15px;color:#8299a9;font-size:12px}
+@media(max-width:800px){.columns{grid-template-columns:1fr}.grid{grid-template-columns:1fr}main{padding-top:26px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><a class="logo" href="index.html" aria-label="Omega Arcade homepage">Ω OMEGA <b>ARCADE</b></a><a class="back" href="index.html">← BACK TO ARCADE</a></header>
+<main>
+<div class="eyebrow">EXPAND YOUR COLLECTION</div><h1>ADD A <span>NEW GAME.</span></h1>
+<p class="intro">Add any playable HTML game or game embed to your arcade. It will appear in <strong>My Games</strong> on this browser. No account or coding needed.</p>
+<div class="columns">
+<section class="panel" aria-labelledby="formTitle"><h2 id="formTitle">＋ Add game</h2>
+<form id="form" novalidate>
+<div class="grid"><label class="field"><span>GAME NAME <b class="required">*</b></span><input id="name" maxlength="60" required autocomplete="off" placeholder="e.g. DRIFT BOSS V3"></label>
+<label class="field"><span>CATEGORY</span><select id="category"><option value="external">Online / Other</option><option value="action">Action / Arcade</option><option value="roguelite">Roguelite</option><option value="incremental">Clicker / Idle</option></select></label></div>
+<label class="field"><span>GAME LINK, IFRAME CODE, OR UPLOADED GAME PATH <b class="required">*</b></span><textarea id="path" maxlength="6000" rows="4" required placeholder='https://example.com/game/\nor <iframe src="https://example.com/game/"></iframe>\nor games/my-game/index.html'></textarea></label>
+<label class="field"><span>DESCRIPTION (OPTIONAL)</span><textarea id="description" rows="2" maxlength="260" placeholder="What is this game about?"></textarea></label>
+<label class="field"><span>THUMBNAIL URL (OPTIONAL)</span><input id="image" maxlength="1300" placeholder="https://example.com/cover.png"></label>
+<label class="field"><span>CONTROLS (OPTIONAL)</span><input id="controls" maxlength="180" placeholder="Mouse / WASD / Space"></label>
+<div class="buttons"><button class="btn primary" type="submit">✓ SAVE GAME</button><a class="btn" href="index.html">CANCEL</a></div>
+<div id="status" class="status" aria-live="polite" hidden></div>
+</form>
+<div class="tip"><b>Examples:</b> paste an <code>&lt;iframe&gt;</code> from a games website, a full <code>https://</code> link, or <code>drift-boss-v3/index.html</code> if you've already uploaded that game folder to GitHub. Some websites block being played inside other sites.</div>
+</section>
+<aside class="panel"><h2>YOUR SAVED GAMES <span class="badge" id="count">0</span></h2>
+<p class="small">These games are stored in this browser and will also appear in your arcade library.</p><ul class="saved-list" id="saved"></ul>
+<div class="buttons tools"><button id="export" type="button" class="btn">↓ EXPORT FOR GITHUB</button><button id="import" type="button" class="btn">↑ IMPORT LIST</button><input type="file" id="file" accept=".json,application/json"></div>
+<p class="note">To show games to <b>everyone</b>, export <code>community-games.json</code> and upload it to the root of your GitHub repository. Games you add here are otherwise only visible in your browser.</p>
+<a class="btn primary" href="index.html#library">▶ VIEW ARCADE LIBRARY</a>
+</aside></div>
+</main><footer>OMEGA ARCADE · YOUR GAMES, YOUR UNIVERSE</footer>
+<script>
+(()=>{'use strict';
+ const KEY='omega-arcade-custom-games-v1',MAX=100;
+ const $=id=>document.getElementById(id);
+ const status=(message,error=false)=>{const el=$('status');el.hidden=false;el.classList.toggle('error',error);el.textContent=message;};
+ const safeText=(value,len)=>String(value||'').replace(/[\x00-\x1F\x7F]/g,' ').trim().slice(0,len);
+ const uid=()=> 'user-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,9);
+ function getLocal(){try{const v=JSON.parse(localStorage.getItem(KEY)||'[]');return Array.isArray(v)?v.filter(g=>g&&typeof g==='object').slice(0,MAX):[]}catch{return[]}}
+ function saveLocal(list){try{localStorage.setItem(KEY,JSON.stringify(list.slice(0,MAX)));return true}catch{return false}}
+ function validateURL(raw){let s=String(raw||'').trim();if(/<iframe\b/i.test(s)){const doc=new DOMParser().parseFromString(s,'text/html');s=doc.querySelector('iframe')?.getAttribute('src')||'';}s=s.trim();if(!s||s.length>4000)throw Error('Please paste a valid link or iframe src.');
+   if(/^https:\/\//i.test(s)){let u;try{u=new URL(s)}catch{throw Error('That HTTPS link is invalid.')};if(u.protocol!=='https:'||u.username||u.password)throw Error('Please use an HTTPS link without login details.');return u.href}
+   if(!/^(?!\/)(?!\.)(?!.*\.\.)(?!.*[\?#])[a-z0-9_./-]+\.html$/i.test(s)||s.includes('//'))throw Error('For uploaded files use a path such as games/my-game/index.html.');return s;}
+ function safeImage(s){s=String(s||'').trim();if(!s)return 'assets/custom-game.svg';if(/^https:\/\//i.test(s)){try{const u=new URL(s);return u.username||u.password?'assets/custom-game.svg':u.href}catch{return 'assets/custom-game.svg'}}return /^(?!\/)(?!\.)(?!.*\.\.)(?!.*[\?#])[a-z0-9_./-]+\.(png|jpg|jpeg|webp|svg)$/i.test(s)?s:'assets/custom-game.svg'}
+ function render(){const entries=getLocal(),box=$('saved');box.replaceChildren();$('count').textContent=String(entries.length);if(!entries.length){const li=document.createElement('li');li.textContent='No custom games yet. Add your first one!';box.append(li);return}
+   for(const g of entries){const li=document.createElement('li');const link=document.createElement('a');link.href='play.html?game='+encodeURIComponent(g.id);link.textContent=g.name||'Unnamed game';const del=document.createElement('button');del.type='button';del.className='remove';del.textContent='Remove';del.setAttribute('aria-label','Remove '+(g.name||'game'));del.addEventListener('click',()=>{if(!confirm('Remove '+g.name+'?'))return;if(saveLocal(getLocal().filter(x=>x.id!==g.id))){render();status(g.name+' removed.')}else status('Browser storage failed.',true)});li.append(link,del);box.append(li)}}
+ $('form').addEventListener('submit',e=>{e.preventDefault();const name=safeText($('name').value,60);if(!name){status('Please enter a game name.',true);$('name').focus();return}
+   let path;try{path=validateURL($('path').value)}catch(err){status(err.message,true);$('path').focus();return}
+   const list=getLocal();if(list.length>=MAX){status('You have reached the 100-game limit.',true);return}
+   const obj={id:uid(),name,description:safeText($('description').value,260)||'A game added to OMEGA ARCADE.',category:$('category').value,image:safeImage($('image').value),controls:safeText($('controls').value,180)||'Click inside the game to interact.',path};
+   if(!saveLocal([...list,obj])){status('Your browser blocked storage. Try normal browsing mode, not private mode.',true);return}
+   render();$('form').reset();status('✓ '+name+' added! Click VIEW ARCADE LIBRARY to play it.');});
+ function download(filename,text){const a=document.createElement('a');const blob=new Blob([text],{type:'application/json'});const u=URL.createObjectURL(blob);a.href=u;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000)}
+ $('export').addEventListener('click',async()=>{let merged=getLocal();try{const r=await fetch('community-games.json',{cache:'no-store'});if(r.ok){const p=await r.json();if(Array.isArray(p)){const ids=new Set(merged.map(x=>x.id));for(const g of p){if(g&&g.id&&!ids.has(g.id))merged.push(g)}}}}catch{};download('community-games.json',JSON.stringify(merged,null,2)+'\n');status('Downloaded community-games.json. Upload it to GitHub to share these games with everyone.');});
+ $('import').addEventListener('click',()=>$('file').click());$('file').addEventListener('change',async()=>{const f=$('file').files?.[0];if(!f)return;try{if(f.size>350000)throw Error('Choose a JSON file under 350 KB.');const v=JSON.parse(await f.text());if(!Array.isArray(v))throw Error('The file needs to contain an array of games.');const byId=new Map(getLocal().map(g=>[g.id,g]));for(const g of v.slice(0,MAX)){if(!g||!g.name||!g.path)continue;try{const path=validateURL(g.path);const id=/^user-[a-z\d-]{4,75}$/i.test(g.id||'')?g.id:uid();byId.set(id,{id,name:safeText(g.name,60),path,description:safeText(g.description,260),image:safeImage(g.image),controls:safeText(g.controls,180),category:['external','action','roguelite','incremental'].includes(g.category)?g.category:'external'})}catch{}}
+   if(!saveLocal([...byId.values()].slice(0,MAX)))throw Error('Could not save games to your browser.');render();status('Imported games successfully.')}catch(err){status(err.message||'Import failed.',true)}finally{$('file').value=''}});
+ render();
+})();
+</script>
+</body></html>
